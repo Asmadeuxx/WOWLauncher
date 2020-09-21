@@ -1,6 +1,6 @@
-﻿// Данный програмный продукт является результатом труда и стараний Jumper'а
-// Все права и копирайты закреплены за ним
-// (c) 2011-2019 год
+﻿//Este producto de software es el resultado del trabajo y los esfuerzos de Jumper
+// Todos los derechos y copyrights reservados a él
+// (c) 2011-2019 año
 //--------------------------------------------------------------------
 //----### ------------------------------------------------------------
 //----###---###-----##----#-------##----#######---#######---######----
@@ -44,7 +44,7 @@ using MouseEventArgs = System.Windows.Input.MouseEventArgs;
 namespace Launcher
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Lógica de interacción para MainWindow.xaml
     /// </summary>
     public partial class MainWindow
     {
@@ -140,7 +140,7 @@ namespace Launcher
             }
             else
             {
-                MessageBox.Show("Невозможно подключиться к сети интернет, проверьте ваше подключение и повторите попытку", "Ошибка подключения", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("No se puede conectar a Internet, verifique su conexión y vuelva a intentarlo ", " Error de conexión", MessageBoxButton.OK, MessageBoxImage.Error);
                 Application.Current.Shutdown();
             }
         }
@@ -164,7 +164,7 @@ namespace Launcher
                 return;
             }
 
-            var result = MessageBox.Show("Файл \"Wow.exe\" не найден!\nПожалуйста посместите программу в папку с игрой или укажите путь к папке с игрой!\n\nУказать путь сейчас?", "Ошибка местоположения", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var result = MessageBox.Show("Ubicacion \"Wow.exe\" Extraviado!\nMueva el programa a la carpeta del juego o especifique la ruta a la carpeta del juego!\n\nMuestre La Ubicacion ahora?", "Error de ubicación", MessageBoxButton.YesNo, MessageBoxImage.Question);
             TryToFindFolder(result);
         }
 
@@ -175,7 +175,7 @@ namespace Launcher
         {
             var folder = new FolderBrowserDialog
             {
-                Description = @"Выберите папку с клиентом игры",
+                Description = @"Selecciona la carpeta con el cliente del juego",
                 RootFolder = Environment.SpecialFolder.MyComputer,
                 ShowNewFolderButton = false
             };
@@ -196,7 +196,7 @@ namespace Launcher
                 return;
             }
 
-            var retryResult = MessageBox.Show("В выбранной папке файл \"Wow.exe\" не найден!\nПожалуйста выберите корректную папку с игрой!\n\nПовторить попытку выбора?", "Ошибка выбора папки", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            var retryResult = MessageBox.Show("В Archivo de carpeta seleccionado \"Wow.exe\"Extraviado!\nSelecciona la carpeta del juego correcta!\n\n¿Intentar seleccionar de nuevo? ", " Error de selección de carpeta", MessageBoxButton.YesNo, MessageBoxImage.Question);
             TryToFindFolder(retryResult);
         }
 
@@ -242,7 +242,7 @@ namespace Launcher
                 //    _pListDel = Properties.Settings.Default.PatchToDelete;
                 default:
                     //TODO: CHANGE SERVER NAME AND CLIENT VERSION
-                    var result = MessageBox.Show("Для игры на сервере %SERVER-NAME% требуется клиент версии 3.3.5.12340! Поместите программу в корректную папку с игрой или укажите путь к папке!\n\nУказать путь сейчас?", "Ошибка версии клиента", MessageBoxButton.YesNo, MessageBoxImage.Question);
+                    var result = MessageBox.Show("Para jugar en el servidor %SERVER-NAME%, se requiere la versión del cliente 3.3.5.12340! Coloque el programa en la carpeta del juego correcta o especifique la ruta a la carpeta!\n\nMuestra el camino ahora?", "Error de versión del cliente", MessageBoxButton.YesNo, MessageBoxImage.Question);
                     TryToFindFolder(result);
                     break;
             }
@@ -264,7 +264,7 @@ namespace Launcher
             {
                 var request = (HttpWebRequest)WebRequest.Create(new Uri(Properties.Settings.Default.RealmlistURL));
                 var response = (HttpWebResponse)request.GetResponse();
-                var sr = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException($@"Ошибка получения ответа от {Properties.Settings.Default.RealmlistURL}"));
+                var sr = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException($@"Error al obtener una respuesta de {Properties.Settings.Default.RealmlistURL}"));
                 var realmlist = sr.ReadToEnd();
 
                 var attributes = File.GetAttributes(rPath);
@@ -331,7 +331,7 @@ namespace Launcher
             var request = (HttpWebRequest)WebRequest.Create(new Uri(_pListDel));
             var response = (HttpWebResponse)request.GetResponse();
 
-            var reader = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException($@"Ошибка получения ответа от {_pListDel}"));
+            var reader = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException($@"Error al obtener una respuesta de{_pListDel}"));
 
             string line;
 
@@ -390,7 +390,7 @@ namespace Launcher
                 btn_play.IsEnabled = false;
                 TaskbarPlay.IsEnabled = false;
                 progress.Value = 0;
-                labelmsg.Content = "Инициализация...";
+                labelmsg.Content = "Inicialización...";
                 _count = 0;
                 startDownloadBackgroundWorker.RunWorkerAsync();
             }
@@ -615,14 +615,14 @@ namespace Launcher
                 TaskbarProgress.ProgressState = TaskbarItemProgressState.Normal;
                 TaskbarPlay.IsEnabled = false;
                 btn_play.IsEnabled = false;
-                labelmsg.Content = "Идет обновление...";
+                labelmsg.Content = "Actualización en progreso...";
             }
             else
             {
                 DownloadBar.Visibility = Visibility.Hidden;
                 TaskbarProgress.ProgressState = TaskbarItemProgressState.None;
                 TaskbarPlay.IsEnabled = true;
-                labelmsg.Content = "Игра обновлена";
+                labelmsg.Content = "El juego ha sido actualizado";
                 btn_play.IsEnabled = true;
             }
         }
@@ -670,9 +670,9 @@ namespace Launcher
 
             File.Delete(_updatePath);
 
-            MessageBox.Show("Все файлы успешно удалены", "Удаление файлов", MessageBoxButton.OK, MessageBoxImage.Information);
+            MessageBox.Show("Todos los archivos eliminados con éxito", "Eliminar archivos", MessageBoxButton.OK, MessageBoxImage.Information);
             btn_play.Visibility = Visibility.Hidden;
-            labelmsg.Content = "Запуск клиента невозможен";
+            labelmsg.Content = "No se puede iniciar el cliente";
         }
 
         /// <summary>
@@ -735,12 +735,12 @@ namespace Launcher
                             Application
                                 .GetResourceStream(new Uri("pack://application:,,,/img/101.ico"))
                                 ?.Stream 
-                            ?? throw new NullReferenceException("Не найден ресурс 101.ico")
+                            ?? throw new NullReferenceException("Recurso no encontrado 101.ico")
                             ),
                         Visible = true
                     };
 
-                    ni.ShowBalloonTip(2000, "Программа запуска", "Программа запуска продолжает работать в фоновом режиме. Чтобы развернуть ее, используйте двойной щелчек левой кнопки мыши", ToolTipIcon.Info);
+                    ni.ShowBalloonTip(2000, "Launcher", "Launcher continúa ejecutándose en segundo plano. Haz doble clic en el botón izquierdo del mouse para expandirlo", ToolTipIcon.Info);
                     Hide();
                     ni.DoubleClick +=
                         delegate
@@ -801,7 +801,7 @@ namespace Launcher
             {
                 MessageBox.Show(ex.Message);
 
-                if (ex.Message.Equals("Не удается найти указанный файл"))
+                if (ex.Message.Equals("No se puede encontrar el archivo especificado"))
                     ShowFolderDialog();
             }
         }
@@ -821,7 +821,7 @@ namespace Launcher
             {
                 settings.BtnDel.IsEnabled = false;
                 settings.ResetPath.IsEnabled = false;
-                settings.BtnDel.ToolTip = "Не возможно выполнить\nво время процесса обновления";
+                settings.BtnDel.ToolTip = "No se puede ejecutar \ndurante el proceso de actualización";
             }
 
             modalWindow.Owner = this;
@@ -851,17 +851,17 @@ namespace Launcher
                 
         private void link_main_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start(Properties.Settings.Default.MainURL);
         }
 
         private void link_cabinet_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start(Properties.Settings.Default.ForumURL);
         }
 
         private void link_registration_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start(Properties.Settings.Default.RegisterURL);
         }
 
         private void link_social_Click(object sender, RoutedEventArgs e)

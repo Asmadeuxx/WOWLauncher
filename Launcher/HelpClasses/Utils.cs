@@ -18,8 +18,8 @@ namespace Launcher.HelpClasses
         {
             public static string GetPath(string gamePath, string item)
             {
-                if (item.ToLower().Contains(".mpq") && item.Contains("-ruRU-"))
-                    return Path.Combine(gamePath, $@"Data\ruRU\{item}"); 
+                if (item.ToLower().Contains(".mpq") && item.Contains("-esES-"))
+                    return Path.Combine(gamePath, $@"Data\esES\{item}"); 
 
                 return item.ToLower().Contains(".mpq") 
                     ? Path.Combine(gamePath, $@"Data\{item}") 
