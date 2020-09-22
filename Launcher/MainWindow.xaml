@@ -14,13 +14,17 @@
         </TaskbarItemInfo>
     </Window.TaskbarItemInfo>
     <Grid x:Name="MainGrid" MouseDown="Grid_MouseDown" ClipToBounds="True" Margin="0">
-        <Grid Background="#FF260A23">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="155*"/>
+            <ColumnDefinition Width="357*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#FF260A23" Grid.ColumnSpan="2">
             <Grid.RowDefinitions>
                 <RowDefinition Height="3*"/>
                 <RowDefinition Height="62*"/>
             </Grid.RowDefinitions>
             <Canvas Height="800" Width="1920" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="-448,0,-448,-150" Grid.RowSpan="2" Background="#FF311102">
-                <Image Source="img/main.jpg" Stretch="UniformToFill" StretchDirection="UpOnly" Height="830" Width="1843" Canvas.Left="10" Canvas.Top="-40"/>
+                <Image Source="img/main.jpg" Stretch="UniformToFill" StretchDirection="UpOnly" Height="780" Width="1910" Canvas.Left="10" Canvas.Top="10"/>
                 <Border Height="80" BorderBrush="#33FFFFFF" BorderThickness="0,0,0,1">
                     <Image Source="img/main.jpg" Stretch="UniformToFill" StretchDirection="UpOnly" Margin="0,0,0,0">
                         <Image.Effect>
@@ -130,7 +134,7 @@
                                 </LinearGradientBrush>
                             </ProgressBar.Foreground>
                         </ProgressBar>
-                        <Label Content="{Binding Value, ElementName=progress, StringFormat=\{0:0\}}"  Margin="0,0,35,0" Foreground="#7FFFFFFF" FontSize="15" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Общий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="{Binding Value, ElementName=progress, StringFormat=\{0:0\}}"  Margin="0,0,35,0" Foreground="#7FFFFFFF" FontSize="15" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Progreso de actualización general" Padding="0" VerticalContentAlignment="Bottom"/>
                         <Label Content="%"  Foreground="#7FFFFFFF" FontSize="15" HorizontalAlignment="Right" Width="25" HorizontalContentAlignment="Center" Margin="0,0,10,0" FontFamily="Tahoma" ToolTip="Progreso general de la actualización" Padding="0" VerticalContentAlignment="Bottom"/>
                     </Grid>
                     <Grid x:Name="currentProgressGrid" Grid.Row="2">
@@ -144,7 +148,7 @@
                                 </LinearGradientBrush>
                             </ProgressBar.Foreground>
                         </ProgressBar>
-                        <Label Content="{Binding Value, ElementName=progress_file, StringFormat=\{0:0\}}" Margin="0,0,35,0" Foreground="#7FFFFFFF" FontSize="15" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Текущий прогресс обновления" Padding="0" VerticalContentAlignment="Bottom"/>
+                        <Label Content="{Binding Value, ElementName=progress_file, StringFormat=\{0:0\}}" Margin="0,0,35,0" Foreground="#7FFFFFFF" FontSize="15" HorizontalAlignment="Right" Width="36" HorizontalContentAlignment="Right" FontFamily="Tahoma" ToolTip="Progreso de la actualización actual" Padding="0" VerticalContentAlignment="Bottom"/>
                         <Label Content="%"  Foreground="#7FFFFFFF" FontSize="15" HorizontalAlignment="Right" Width="25" HorizontalContentAlignment="Center" Margin="0,0,10,0" FontFamily="Tahoma" ToolTip="Progreso de la actualización actual" Padding="0" VerticalContentAlignment="Bottom"/>
 
                     </Grid>
@@ -154,7 +158,39 @@
                 <Button x:Name="link_main" Content="HOGAR" HorizontalAlignment="Left" Margin="40,2,0,2" Style="{DynamicResource LinkButton}" Width="115" FontSize="16" Click="link_main_Click" Background="#FFA03A3A"/>
                 <Button x:Name="link_cabinet" Content="FORO" HorizontalAlignment="Left" Margin="155,2,0,2" Style="{DynamicResource LinkButton}" Width="115" FontSize="16" Click="link_cabinet_Click"/>
                 <Button x:Name="link_registration" Content="REGISTRARSE" HorizontalAlignment="Left" Margin="270,2,0,2" Style="{DynamicResource LinkButton}" Width="150" FontSize="16" Click="link_registration_Click"/>
-                <Button x:Name="link_social" Content="SOCIAL" HorizontalAlignment="Left" Margin="420,2,0,2" Style="{DynamicResource LinkButton}" Width="130" FontSize="16" Click="link_social_Click"/>
+                <Button x:Name="link_streams" Content="STREAMS" HorizontalAlignment="Left" Margin="421,2,0,2" Style="{DynamicResource LinkButton}" Width="130" FontSize="16" Click="link_streams_Click"/>
+                <Button x:Name="btn_facebook" ToolTip="Facebook" Style="{DynamicResource SimpleButton}" FontSize="16" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" BorderThickness="0" FontFamily="Arial Rounded MT" IsTabStop="False" Padding="1" VerticalContentAlignment="Center" Canvas.Left="205" Canvas.Top="10" Click="btn_facebook_Click" Margin="973,57,11,3" Grid.Row="2">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        SnapsToDevicePixels="False"
+                        StrokeThickness="0"
+                        Data="M83.829,0.349C37.532,0.349 0,37.881 0,84.178 0,125.701 30.222,160.089 69.848,166.748L69.848,101.667 49.626,101.667 49.626,78.247 69.848,78.247 69.848,60.978C69.848,40.941 82.086,30.022 99.963,30.022 108.525,30.022 115.883,30.66 118.019,30.941L118.019,51.885 105.62,51.891C95.9,51.891,94.026,56.509,94.026,63.288L94.026,78.235 117.219,78.235 114.194,101.655 94.026,101.655 94.026,167.308C135.502,162.26 167.657,126.996 167.657,84.154 167.657,37.881 130.125,0.34899999999999 83.829,0.34899999999999z" Stretch="Fill" Fill="#FF005DFF" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+                <Button x:Name="btn_discord" ToolTip="Discord" Style="{DynamicResource SimpleButton}" FontSize="16" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" BorderThickness="0" FontFamily="Arial Rounded MT" IsTabStop="False" Padding="1" VerticalContentAlignment="Center" Canvas.Left="285" Canvas.Top="10" Click="btn_discord_Click" Margin="929,57,55,3" Grid.Row="2">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        SnapsToDevicePixels="False"
+                        StrokeThickness="0"
+                        Data="M12 0C5.374 0 0 5.372 0 12c0 6.627 5.374 12 12 12 6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12zm3.248 18.348l-.371-1.295.896.833.847.784L18.125 20V7.442c0-.798-.644-1.442-1.435-1.442H7.31c-.791 0-1.435.644-1.435 1.442v9.464c0 .798.644 1.442 1.435 1.442h7.938zm-1.26-3.206l-.462-.567c.917-.259 1.267-.833 1.267-.833-.287.189-.56.322-.805.413-.35.147-.686.245-1.015.301a4.904 4.904 0 01-1.813-.007 5.876 5.876 0 01-1.029-.301 4.102 4.102 0 01-.511-.238l-.028-.016-.007-.003-.028-.016-.028-.021-.196-.119s.336.56 1.225.826l-.469.581c-1.547-.049-2.135-1.064-2.135-1.064 0-2.254 1.008-4.081 1.008-4.081 1.008-.756 1.967-.735 1.967-.735l.07.084c-1.26.364-1.841.917-1.841.917l.413-.203c.749-.329 1.344-.42 1.589-.441l.119-.014a5.706 5.706 0 013.521.658s-.553-.525-1.743-.889l.098-.112s.959-.021 1.967.735c0 0 1.008 1.827 1.008 4.081 0 0-.573.977-2.142 1.064zm-.7-3.269c-.399 0-.714.35-.714.777 0 .427.322.777.714.777.399 0 .714-.35.714-.777 0-.427-.315-.777-.714-.777zm-2.555 0c-.399 0-.714.35-.714.777 0 .427.322.777.714.777.399 0 .714-.35.714-.777.007-.427-.315-.777-.714-.777z" Stretch="Fill" Fill="#FF7289DA" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
+                <Button x:Name="btn_youtube" ToolTip="YouTube" Style="{DynamicResource SimpleButton}" FontSize="16" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" BorderThickness="0" FontFamily="Arial Rounded MT" IsTabStop="False" Padding="1" VerticalContentAlignment="Center" Canvas.Left="45" Canvas.Top="10" Click="btn_youtube_Click" Margin="844,57,140,3" Grid.Row="2">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        SnapsToDevicePixels="False"
+                        StrokeThickness="0"
+                        Data="M12,0C5.373,0 0,5.373 0,12 0,18.627 5.373,24 12,24 18.627,24 24,18.627 24,12 24,5.373 18.627,0 12,0z M16.441,16.892C14.339,17.036 9.657,17.036 7.558,16.892 5.282,16.736 5.017,15.622 5,12 5.017,8.371 5.285,7.264 7.558,7.108 9.657,6.964 14.34,6.964 16.441,7.108 18.718,7.264 18.982,8.378 19,12 18.982,15.629 18.715,16.736 16.441,16.892z M10,9.658L14.917,11.996 10,14.342 10,9.658z" Stretch="Fill" Fill="Red" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                </Button>
+                <Button x:Name="btn_twitch" ToolTip="Twitch" Style="{DynamicResource SimpleButton}" FontSize="16" HorizontalAlignment="Center" Width="40" Height="40" VerticalAlignment="Center" BorderThickness="0" FontFamily="Arial Rounded MT" IsTabStop="False" Padding="1" VerticalContentAlignment="Center" Canvas.Left="130" Canvas.Top="10" Click="btn_twitch_Click" Margin="887,57,97,3" Grid.Row="2">
+                    <Path
+                        Width="30"
+                        Height="30"
+                        SnapsToDevicePixels="False"
+                        StrokeThickness="0"
+                        Data="M10.224,17.806L12,16.03 15.343,16.03 17.433,13.94 17.433,7.254 7.403,7.254 7.403,16.03 10.224,16.03 10.224,17.806z M14.09,9.657L15.344,9.657 15.344,13.31 14.09,13.31 14.09,9.657z M10.746,9.657L12,9.657 12,13.31 10.746,13.31 10.746,9.657z M12,0C5.373,0 0,5.373 0,12 0,18.627 5.373,24 12,24 18.627,24 24,18.627 24,12 24,5.373 18.627,0 12,0z M18.687,14.567L15.03,18.224 12.314,18.224 10.537,20 8.657,20 8.657,18.224 5.313,18.224 5.313,8.403 6.254,6 18.687,6 18.687,14.567z" Stretch="Fill" Fill="#FF772CE8" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Button>
             </Grid>
         </Grid>
     </Grid>

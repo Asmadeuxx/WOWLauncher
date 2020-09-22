@@ -838,6 +838,26 @@ namespace Launcher
             ShowModalWithEffect(new VerUpd());
         }
 
+        private void btn_facebook_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(Properties.Settings.Default.FacebookURL);
+        }
+
+        private void btn_youtube_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(Properties.Settings.Default.YoutubeURL);
+        }
+
+        private void btn_twitch_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(Properties.Settings.Default.TwitchURL);
+        }
+
+        private void btn_discord_Click(object sender, RoutedEventArgs e)
+        {
+            Process.Start(Properties.Settings.Default.DiscordURL);
+        }
+
         private void btn_min_Click(object sender, RoutedEventArgs e)
         {
             WindowState = WindowState.Minimized;
@@ -864,9 +884,10 @@ namespace Launcher
             Process.Start(Properties.Settings.Default.RegisterURL);
         }
 
-        private void link_social_Click(object sender, RoutedEventArgs e)
+        private void link_streams_Click(object sender, RoutedEventArgs e)
         {
-            Process.Start("http://your-link.domain");
+            Process.Start(Properties.Settings.Default.StreamsURL);
         }
     }
 }
+

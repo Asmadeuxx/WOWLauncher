@@ -50,5 +50,20 @@
     <Setting Name="RegisterURL" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://your-link.domain/register</Value>
     </Setting>
+    <Setting Name="StreamsURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">http://your-link.domain/community#streams</Value>
+    </Setting>
+    <Setting Name="FacebookURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="DiscordURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="YoutubeURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="TwitchURL" Type="System.String" Scope="Application">
+      <Value Profile="(Default)" />
+    </Setting>
   </Settings>
 </SettingsFile>
