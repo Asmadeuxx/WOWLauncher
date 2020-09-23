@@ -175,7 +175,7 @@ namespace Launcher.Properties {
                 return ((string)(this["ForumURL"]));
             }
         }
-        
+
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("http://your-link.domain/register")]
@@ -231,3 +231,4 @@ namespace Launcher.Properties {
         }
     }
 }
+
